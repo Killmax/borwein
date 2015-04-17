@@ -19,48 +19,48 @@ def fonction(x, n)
 end;
 
 def rectangles(n)
-counter = 0;
-result = 0.0;
-h = 5000.0 / 10000.0;
-while counter < 10000
-  result += fonction(counter * h, n);
-  counter += 1;
-end;
-result *= h;
-puts "Méthode des rectangles", "I" + n.to_s + " = " + result.round(10).to_s;
-puts "diff = " + (result - (Math::PI / 2)).round(10).to_s;
+  counter = 0;
+  result = 0.0;
+  h = 5000.0 / 10000.0;
+  while counter < 10000
+    result += fonction(counter * h, n);
+    counter += 1;
+  end;
+  result *= h;
+  puts "Méthode des rectangles", "I" + n.to_s + " = " + result.round(10).to_s;
+  puts "diff = " + (result - (Math::PI / 2)).round(10).to_s;
 end;
 
 def trapezes(n)
-counter = 1;
-result = 0.0;
-h = 5000.0 / 10000.0;
-while counter < 10000
-  result += fonction(counter * h, n);
-  counter += 1;
-end;
-result = 0.25 * (fonction(0, n) + fonction(5000, n) + 2 * result);
-puts "Méthode des trapèzes", "I" + n.to_s + " = " + result.round(10).to_s;
-puts "dif = " + (result - (Math::PI / 2)).round(10).to_s;
+  counter = 1;
+  result = 0.0;
+  h = 5000.0 / 10000.0;
+  while counter < 10000
+    result += fonction(counter * h, n);
+    counter += 1;
+  end;
+  result = 0.25 * (fonction(0, n) + fonction(5000, n) + 2 * result);
+  puts "Méthode des trapèzes", "I" + n.to_s + " = " + result.round(10).to_s;
+  puts "dif = " + (result - (Math::PI / 2)).round(10).to_s;
 end;
 
 def simpson(n)
-counter = 1;
-result1 = 0.0;
-h = 5000.0 / 10000.0;
-while counter < 10000
-  result1 += fonction(counter * h, n);
-  counter += 1;
-end;
-result2 = 0.0;
-counter = 0;
-while counter < 10000
-  result2 += fonction(counter * h + (h * 0.5), n);
-  counter += 1;
-end;
-result = 5000.0 / 60000.0 * (fonction(0, n) + fonction(5000, n) + 2 * result1 + 4 * result2);
-puts "Méthode de Simpson", "I" + n.to_s + " = " + result.round(10).to_s;
-puts "dif = " + (result - (Math::PI / 2)).round(10).to_s;
+  counter = 1;
+  result1 = 0.0;
+  h = 5000.0 / 10000.0;
+  while counter < 10000
+    result1 += fonction(counter * h, n);
+    counter += 1;
+  end;
+  result2 = 0.0;
+  counter = 0;
+  while counter < 10000
+    result2 += fonction(counter * h + (h * 0.5), n);
+    counter += 1;
+  end;
+  result = 5000.0 / 60000.0 * (fonction(0, n) + fonction(5000, n) + 2 * result1 + 4 * result2);
+  puts "Méthode de Simpson", "I" + n.to_s + " = " + result.round(10).to_s;
+  puts "dif = " + (result - (Math::PI / 2)).round(10).to_s;
 end;
 
 n = ARGV[0].to_i;
