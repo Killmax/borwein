@@ -1,8 +1,8 @@
 #!/usr/bin/ruby
 # -*- coding: utf-8 -*-
 
-if ARGV.length == 0
-  puts "Il n'y a pas de paramètres";
+if ARGV.length != 1
+  puts "Usage : ./110borwein n";
   exit(0);
 end;
 
@@ -41,7 +41,7 @@ def trapezes(n)
   end;
   result = 0.25 * (fonction(0, n) + fonction(5000, n) + 2 * result);
   puts "Méthode des trapèzes", "I" + n.to_s + " = " + result.round(10).to_s;
-  puts "dif = " + (result - (Math::PI / 2)).round(10).to_s;
+  puts "diff = " + (result - (Math::PI / 2)).round(10).to_s;
 end;
 
 def simpson(n)
@@ -60,7 +60,7 @@ def simpson(n)
   end;
   result = 5000.0 / 60000.0 * (fonction(0, n) + fonction(5000, n) + 2 * result1 + 4 * result2);
   puts "Méthode de Simpson", "I" + n.to_s + " = " + result.round(10).to_s;
-  puts "dif = " + (result - (Math::PI / 2)).round(10).to_s;
+  puts "diff = " + (result - (Math::PI / 2)).round(10).to_s;
 end;
 
 n = ARGV[0].to_i;
